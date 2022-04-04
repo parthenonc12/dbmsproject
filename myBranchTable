@@ -1,0 +1,10 @@
+CREATE TABLE branch(
+ branch_id int PRIMARY KEY NOT NULL,
+ branch_name varchar(50) NOT NULL,
+ cargo_id int,
+ supervisor_id int,
+ FOREIGN KEY(cargo_id) REFERENCES cargo(cargo_id) ON DELETE SET NULL,
+ FOREIGN KEY(supervisor_id) REFERENCES shipper(shipper_id) ON DELETE SET NULL
+);
+ALTER TABLE branch
+DROP COLUMN cargo_id
