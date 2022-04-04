@@ -1,0 +1,14 @@
+CREATE TABLE cargo(
+ cargo_id INT PRIMARY KEY NOT NULL,
+ cargo_name varchar(50) NOT NULL,
+ booking_id INT,
+ weight varchar(50),
+ mark varchar(20),
+ FOREIGN KEY(booking_id) REFERENCES shipper(shipper_id) ON DELETE SET NULL
+);
+ALTER TABLE cargo
+ADD branch_id int;
+ALTER TABLE cargo
+ADD FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL;
+ALTER TABLE cargo 
+MODIFY mark varchar(100)
